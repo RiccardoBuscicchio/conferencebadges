@@ -17,7 +17,7 @@ jobs:
       # Compile LaTeX document with pdflatex
       - name: Compile LaTeX
         run: |
-          pdflatex main.tex
+          xelatex main.tex
       # Combine multiple pages into one A4 using pdfjam
       - name: Arrange PDF pages with pdfjam
         run: |

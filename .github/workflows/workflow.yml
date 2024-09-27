@@ -1,0 +1,31 @@
+name: Build LaTeX Document
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+      # Install TeX Live and pdfjam
+      - name: Install TeX Live and pdfjam
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive texlive-latex-extra texlive-fonts-recommended
+          sudo apt-get install -y pdfjam
+      # Compile LaTeX document with pdflatex
+      - name: Compile LaTeX
+        run: |
+          pdflatex main.tex
+      # Combine multiple pages into one A4 using pdfjam
+      - name: Arrange PDF pages with pdfjam
+        run: |
+          pdfjam --nup 2x5 --paper a4paper --noautoscale true main.pdf
+      # Upload the final PDF as an artifact
+      - name: Upload PDF artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: output-pdf
+          path: main-nup.pdf

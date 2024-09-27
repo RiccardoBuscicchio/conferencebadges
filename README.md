@@ -8,7 +8,7 @@
 
 ### What the code does for you:
 - Loads the data file with `\DTLloaddb{data}{participants.csv}`.
-  Replace with `\DTLloadrawdb{data}{participants.csv}` if you expect entries to contain special characters like `$`, `&`.
+- (Replace with `\DTLloadrawdb{data}{participants.csv}` if you expect entries to contain special characters like `$`, `&`.)
 - Designs the badge using the `datatools` latex package.
 - Uses the mapped commands to insert/change fields.
   ```
@@ -18,7 +18,8 @@
     Delegate name: \Name <\Email>  
   }
   ```
-- Compile a pdf with all badges in github-actions
-- Jam multiple badges in one page, adding cut-out margins
-- Upload the jammed badges as artifact
+- Compiles a pdf with all badges in github-actions
+- Jams multiple badges in one page, adding cut-out margins
+- Uploads the jammed badges as artifacts.
+
 

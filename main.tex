@@ -4,7 +4,6 @@
 % Instructions are at the end of the file.
 
 \documentclass[11pt,a4paper]{memoir}
-
 \setstocksize{55mm}{85mm} % UK Stock size
 \setpagecc{55mm}{85mm}{*}
 \settypeblocksize{45mm}{75mm}{*}
@@ -23,7 +22,7 @@
 %% Spreadsheet applications can usually export such a .csv file.
 %%
 %% If field values are expected to contain LaTeX special characters like $, &, then use \DTLloadrawdb{data}.csv instead.
-\DTLloaddb{namelist}{data.csv}
+\DTLloaddb{namelist}{participants.csv}
 
 \setheadfoot{0.1pt}{0.1pt}
 \setheaderspaces{1pt}{*}{*}
@@ -51,11 +50,9 @@
 \DTLforeach{namelist}{%
     %% Map each column header in your .csv file to a command
 	\Name=Name,%
-    \Employer=Employer,
     \Institution=Institution,
     \Email=Email,
-    \Mobile=Mobile,
-    \Web=Web%
+    \Pronoun=Pronoun%
 }{%%%  Start designing your output text! 
   %%%  Mailmerged field values can be inserted using the commands
   %%%  you've just mapped above.
@@ -69,7 +66,7 @@
         \begin{pspicture}(21mm,21mm)
             % The MECARD format is used to exchange contact information. More information at:
             % https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/index.html
-\psbarcode{MECARD:N:\Name;URL:\Web;EMAIL:\Email;TEL:\Mobile;NOTE:\Institution}{eclevel=L width=0.7 height=0.7}{qrcode}
+\psbarcode{MECARD:N:\Name;EMAIL:\Email;NOTE:\Institution}{eclevel=L width=0.7 height=0.7}{qrcode}
         \end{pspicture}
     \end{minipage}
     \hspace{1mm}
@@ -78,15 +75,15 @@
         \begin{flushleft}
         {\small
             \begin{Spacing}{1}%
-            \textbf{\Name}\\
-            {\footnotesize\Employer}\\
+            \textbf{\Name}
+            (\footnotesize \Pronoun)\\
             \textbf{\footnotesize\Institution}
             \end{Spacing}
         }
         \end{flushleft}
     \end{minipage}
     
-    \mbox{}\hfill {\scriptsize \includegraphics[height=3.0em]{ifpu.png} \includegraphics[height=3.0em]{logo.jpeg} }
+    \mbox{}\hfill {\scriptsize \includegraphics[height=3.0em]{logo.jpeg}}
     \end{Spacing}
     \clearpage
 }

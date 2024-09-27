@@ -2,7 +2,7 @@
 
 ## Template Instructions
 ### What you need to do:
-- Place your data in `participants.csv`. This might be exported from a spreadsheet program.
+- Place your participants data in `participants.csv`. This might be exported from a spreadsheet program.
   The first line should contain the field headers -- avoid space characters in them.
 - Commit
 

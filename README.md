@@ -2,11 +2,12 @@
 
 ## Template Instructions
 ### What you need to do:
-- Create a copy of this repo template, using <a href="https://github.com/new?template_name=template-project&template_owner=RiccardoBuscicchio">
-  <img src="https://img.shields.io/badge/use%20this-template-blue?logo=github">
-</a>
+- Create a copy of this repo template, using
+- <a href="https://github.com/new?template_name=template-project&template_owner=RiccardoBuscicchio"><img src="https://img.shields.io/badge/use%20this-template-blue?logo=github"></a>
 - Grant "Read and Write access" to Github Actions for the newly created repository (Settings-->Actions)
-- Place your participants data in `participants.csv`. This might also be easily exported from any spreadsheet manager software. The first line should contain the field headers -- avoid space characters in them.
+- Place your participants data in `participants.csv`.
+  This might also be easily exported from any spreadsheet manager software.
+  The first line should contain the field headers -- avoid space characters in them.
 - Commit
 
 ### What the code does for you:

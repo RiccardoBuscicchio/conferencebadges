@@ -21,7 +21,7 @@ jobs:
       # Combine multiple pages into one A4 using pdfjam
       - name: Arrange PDF pages with pdfjam
         run: |
-          pdfjam --nup 2x5 --paper a4paper --noautoscale true main.pdf
+          pdfjam --nup 2x6 --paper a4paper --noautoscale true --frame true --delta "1cm 0.5cm" main.pdf
       # Upload the final PDF as an artifact
       - name: Upload PDF artifact
         uses: actions/upload-artifact@v3

@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       # Install TeX Live and pdfjam
       - name: Install TeX Live and pdfjam
         run: |
@@ -24,7 +24,30 @@ jobs:
           pdfjam --nup 2x6 --paper a4paper --noautoscale true --frame true --delta "1cm 0.5cm" main.pdf
       # Upload the final PDF as an artifact
       - name: Upload PDF artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: output-pdf
           path: main-pdfjam.pdf
+  deploy_pdf:
+      needs: [build]
+      runs-on: ubuntu-latest
+      env:
+        DIR: .
+        FILE: main-pdfjam
+      steps:
+        - name: Checkout
+          uses: actions/checkout@v4
+        - uses: actions/download-artifact@v4
+          with:
+            name: artifact
+            path: artifacts/
+        - name: Move pdf
+          run: mkdir -p github_deploy && mv -f artifacts/${{ env.FILE }}.pdf github_deploy
+        - name: Deploy pdf on orphan branch
+          uses: peaceiris/actions-gh-pages@v4
+          with:
+            github_token: ${{ secrets.GITHUB_TOKEN }}
+            publish_dir: ./github_deploy
+            publish_branch: build
+            force_orphan: true
+

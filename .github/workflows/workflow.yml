@@ -13,10 +13,12 @@ jobs:
       - name: Install TeX Live and pdfjam
         run: |
           sudo apt-get update
-          sudo apt-get install -y texlive texlive-latex-extra texlive-pstricks texlive-xetex texlive-fonts-recommended
+          sudo apt-get install -y texlive texlive-latex-extra texlive-pstricks texlive-xetex texlive-fonts-recommended ghostscript
       # Compile LaTeX document with pdflatex
       - name: Compile LaTeX
         run: |
+          export TMPDIR=./tempdir
+          mkdir -p $TMPDIR
           xelatex main.tex
       # Combine multiple pages into one A4 using pdfjam
       - name: Arrange PDF pages with pdfjam

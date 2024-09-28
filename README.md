@@ -22,8 +22,10 @@
     Delegate name: \Name <\Email>  
   }
   ```
+- Creates a barcode for each participant
+- Adds each barcode to each participant's badge
 - Compiles a pdf with all badges in github-actions
 - Jams multiple badges in one page, adding cut-out margins
-- Uploads the jammed badges as artifacts to an orphan repository
+- Uploads the jammed badges as artifacts to the orphan branch `build`
 
 

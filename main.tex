@@ -24,7 +24,7 @@
 \pagestyle{empty}
 \usepackage{graphicx}
 %\usepackage{pstricks}
-%\usepackage{auto-pst-pdf,pst-barcode}
+\usepackage{auto-pst-pdf,pst-barcode}
 \begin{document}
 %% For each line in namelist (which was loaded from data.csv), 
 %% output the following text (with mailmerged field values)
@@ -44,12 +44,10 @@
     \rule{\textwidth}{.3mm}\\
     \begin{minipage}[t]{28mm}
         \vspace{-0mm}%
-{\scriptsize \includegraphics[height=24mm]{logo.png}}
-%        \begin{pspicture}(21mm,21mm)
-            % The MECARD format is used to exchange contact information. More information at:
-            % https://www.nttdocomo.co.jp/english/service/developer/make/content/barcode/function/application/addressbook/index.html
-%\psbarcode{MECARD:N:\Name;EMAIL:\Email;NOTE:\Institution}{eclevel=L width=0.7 height=0.7}{qrcode}
-%        \end{pspicture}
+%{\scriptsize \includegraphics[height=24mm]{logo.png}}
+        \begin{pspicture}(21mm,21mm)
+        \psbarcode{MECARD:N:\Name;EMAIL:\Email;NOTE:\Institution}{eclevel=L width=0.7 height=0.7}{qrcode}
+        \end{pspicture}
     \end{minipage}
 %    \hspace{1mm}
     \hspace{1mm}
@@ -64,6 +62,8 @@
             \end{Spacing}
         }
         \end{flushleft}
+        \vfill
+        \hfill{\scriptsize \includegraphics[height=12mm]{logo.png}}
     \end{minipage}
     \end{Spacing}
     \clearpage
